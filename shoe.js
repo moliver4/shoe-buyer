@@ -1,12 +1,17 @@
   
 const click = (id) => {
     const select = document.getElementById(id);
+    if (select === null ) return;
     select.selectedIndex = 4;
     console.log(select.value)
-    const addButton = document.getElementById("AddToCart")
-    addButton.disabled = false
-    addButton.click()
-    console.log('clicked')
+    const text = document.getElementById("AddToCartText")
+    if (text.textContent !== 'Sold Out') {
+        const addButton = document.getElementById("AddToCart")
+        addButton.disabled = false
+        addButton.click()
+        console.log('Added to Cart')
+    }
+    
 }
 
 setTimeout(click("ProductSelect-product-template-option-0"), 300)
