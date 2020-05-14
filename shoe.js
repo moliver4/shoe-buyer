@@ -10,10 +10,17 @@ const click = (id) => {
         addButton.disabled = false
         addButton.click()
         console.log('Added to Cart')
+        setTimeout(clickCart, 500);
     }
     
 }
 
+const clickCart = () => {
+    document.getElementsByClassName("site-header__cart")[0].click();
+    if (window.location.href.indexOf("cart") != -1) {
+        location.reload();
+    }
+}
 setTimeout(click("ProductSelect-product-template-option-0"), 300)
 
 //   setInterval(() => {
