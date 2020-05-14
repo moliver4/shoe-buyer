@@ -19,12 +19,23 @@ const clickCart = () => {
     document.getElementsByClassName("site-header__cart")[0].click();
     if (window.location.href.indexOf("cart") != -1) {
         location.reload();
+        console.log('stopped early')
+        clearInterval(interval)
+        console.log('stopped')
     }
 }
-setTimeout(click("ProductSelect-product-template-option-0"), 300)
 
-//   setInterval(() => {
-    // click("ProductSelect-product-template");
+const linkCheck = () => {
+    if (window.location.href.indexOf("products") == -1) {
+        console.log('stopped here')
+        clearInterval(interval)
+        return;
+    }
 
-//   }, 300);
+    click("ProductSelect-product-template-option-0")
+    console.log('on product page')
+}
+// setTimeout(click("ProductSelect-product-template-option-0"), 300)
+
+const interval = setInterval(linkCheck, 300);
 //   console.log("here");
