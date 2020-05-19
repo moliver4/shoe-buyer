@@ -4,11 +4,12 @@ const click = (id) => {
     if (select === null ) return;
     for(let i = 0;i < select.options.length;i++){
         if(select.options[i].value == '10' ){
-            select.options[i].selected = true;
+            // select.options[i].selected = true;
+            select.selectedIndex = i;
+            // select.value=select.options[i]
         }
     }
     // select.selectedIndex = 4;
-    console.log(select.value)
 
     setTimeout(checkText, 100)
 }
@@ -17,12 +18,11 @@ const checkText=()=>{
     if (text.textContent !== 'Sold Out') {
         // clearInterval(interval)
         const addButton = document.getElementById("AddToCart")
-        addButton.disabled = false
         addButton.click()
-        console.log('Added to Cart')      
-        setTimeout(clickCart, 300);
+        // console.log('Added to Cart')      
+        // setTimeout(clickCart, 300);
     } else {
-        console.log('reloading')
+        // console.log('reloading')
         setTimeout(location.reload(), 1000);
     }
     
